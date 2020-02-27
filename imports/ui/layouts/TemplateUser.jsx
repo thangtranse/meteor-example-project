@@ -176,7 +176,6 @@ function App(props) {
                 <div className={classes.app}>
                     <Header onDrawerToggle={handleDrawerToggle}/>
                     <main className={classes.main}>
-                        <Content/>
                         {content}
                     </main>
                     <footer className={classes.footer}>

@@ -1,5 +1,5 @@
 import {Meteor} from 'meteor/meteor'
-import {check, Match} from "meteor/check";
+import {check} from "meteor/check";
 
 import {Users} from '/db';
 
@@ -26,5 +26,6 @@ Meteor.methods({
                 lastName: data.lastName,
             }
         });
-    }
+    },
+
 });

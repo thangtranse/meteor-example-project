@@ -1,1 +1,1 @@
-import '/imports/routers/routes';
+import '/imports/routers';

@@ -29,6 +29,7 @@ export default class Home extends React.Component {
             <div className="home">
                 <button onClick={this.getRandomNumber}>Get Random number</button>
                 <p>My random number: {number}</p>
+                <p>Go to manager User</p>
             </div>
         )
     }
