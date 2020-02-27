@@ -1,6 +1,5 @@
 import React from 'react';
 import {withStyles} from '@material-ui/core/styles';
-import SimpleSchema from 'simpl-schema';
 import Grid from '@material-ui/core/Grid';
 import TextField from "@material-ui/core/TextField";
 import Avatar from "@material-ui/core/Avatar";
@@ -37,9 +36,8 @@ class Login extends React.Component {
     }
 
     handleLogin = (data) => {
-        const {email, password} = data.target;
-
-        Meteor.loginWithPassword(email, password, (err) => {
+        data.preventDefault();
+        Meteor.loginWithPassword(data.target.email.value, data.target.password.value, (err) => {
             if (!err) {
                 return FlowRouter.go("/")
             }
@@ -59,7 +57,7 @@ class Login extends React.Component {
                     <Typography component="h1" variant="h5">
                         Sign in
                     </Typography>
-                    <form className={classes.form} noValidate>
+                    <form className={classes.form} noValidate onSubmit={this.handleLogin} method="post">
                         <TextField
                             error={true}
                             helperText="Incorrect entry."
@@ -89,12 +87,11 @@ class Login extends React.Component {
                             label="Remember me"
                         />
                         <Button
-                            type="button"
+                            type="submit"
                             fullWidth
                             variant="contained"
                             color="primary"
                             className={classes.submit}
-                            onClick={this.handleLogin}
                         >
                             Sign In
                         </Button>
