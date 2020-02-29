@@ -51,10 +51,6 @@ function ManagerUser(props) {
         return first;
     });
 
-
-    console.log("listUser", currentUser.listUsers);
-
-
     return (
         <>
             <MUIDataTable
