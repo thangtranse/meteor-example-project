@@ -5,17 +5,19 @@ export default class Home extends React.Component {
         super();
         this.state = {
             number: -1
-        }
+        };
+
     }
-    getRandomNumber = () =>  {
-        Meteor.call('find.random_number',(err, number) => {
-           this.setState({number})
+
+    getRandomNumber = () => {
+        Meteor.call('find.random_number', (err, number) => {
+            this.setState({number})
         });
     };
 
     submit = (data) => {
         Meteor.call('method.checkString', data.myValue, (err, result) => {
-            if(err) {
+            if (err) {
                 return alert(err.details);
             }
             console.log(result);
@@ -24,7 +26,7 @@ export default class Home extends React.Component {
 
     render() {
         const {number} = this.state;
-
+        // console.log("CnxCurContents", CnxCurContents.find().fetch());
         return (
             <div className="home">
                 <button onClick={this.getRandomNumber}>Get Random number</button>

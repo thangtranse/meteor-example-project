@@ -34,6 +34,7 @@ const options = {
 
 function ManagerUser(props) {
     const {classes, children, content} = props;
+
     const currentUser = useTracker(() => {
         const checkSub = Meteor.subscribe("Users");
         const listUsers = Users.find({}).fetch();
